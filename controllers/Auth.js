@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const OTP = require("../models/OTP");
+const Profile = require("../models/Profile");
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -12,7 +13,7 @@ exports.sendOTP = async (req, res) => {
     const { email } = req.body;
 
     //check user already exist or not
-    const checkUserPresent = await User.find({ email });
+    const checkUserPresent = await User.findOne({ email });
 
     //if user already exist,then return a response
     if (checkUserPresent) {
@@ -119,7 +120,7 @@ exports.signUp = async (req, res) => {
         success: false,
         message: "OTP Not Found",
       });
-    } else if (otp != recentOtp) {
+    } else if (recentOtp[0].otp !== otp) {
       return res.status(400).json({
         success: false,
         message: "invalid OTP",
