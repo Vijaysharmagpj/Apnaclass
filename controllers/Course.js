@@ -7,8 +7,7 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader");
 exports.createCourse = async (req, res) => {
   try {
     //fetch data
-    const { courseName, courseDescription, whatYouWillLearn, price, Category } =
-      req.body;
+    const { courseName, courseDescription, whatYouWillLearn, price,status, Category: categoryId,instructions } =req.body;
     //get thumbnail;
     const thumbnail = req.files.thumbnailImage;
     //validation
@@ -18,7 +17,9 @@ exports.createCourse = async (req, res) => {
       !whatYouWillLearn ||
       !price ||
       !Category ||
-      !thumbnail
+      !thumbnail ||
+      !instructions ||
+      !status
     ) {
       return res.status(400).json({
         success: false,
@@ -26,7 +27,7 @@ exports.createCourse = async (req, res) => {
       });
     }
     //check for instructor
-    const userId = req.User.id;
+    const userId = req.user.id;
     const instructorDetails = await User.findById(userId);
     console.log(instructorDetails);
 
@@ -38,7 +39,7 @@ exports.createCourse = async (req, res) => {
     }
 
     //check given Category is valid or not
-    const categoryDetails = await Category.findById(category);
+    const categoryDetails = await Category.findById(categoryId)
     if (!categoryDetails) {
       return res.status(404).json({
         success: false,
@@ -61,6 +62,7 @@ exports.createCourse = async (req, res) => {
       price,
       Category: categoryDetails._id,
       thumbnail: thumbnailImage.secure_url,
+      status
     });
 
     //add the new course to the user schema of instructor
@@ -76,7 +78,7 @@ exports.createCourse = async (req, res) => {
 
     // update the Category schema
     // HW
-    await Category.findByIdAndUpdate(category, {
+    await Category.findByIdAndUpdate(instructorDetails._id, {
       $push: {
         course: newCourse._id,
       },

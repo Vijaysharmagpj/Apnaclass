@@ -17,7 +17,7 @@ exports.auth=(req,res,next)=>{
         // verify the token
         try {
             const decode=jwt.verify(token,process.env.JWT_SECRET);
-            console.log(decode)
+            console.log("Decoded token in auth middleware:", decode);
             req.user = decode;
         } catch (error) {
             return res.status(401).json({
