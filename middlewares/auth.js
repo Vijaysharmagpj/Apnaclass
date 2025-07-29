@@ -7,7 +7,7 @@ const User=require("../models/User");
 exports.auth=(req,res,next)=>{
     try {
         //extract token
-        const token=req.cookie.token || req.body.token || req.header("Authorisation").replace("Bearer ","");
+        const token=req.cookies.token || req.body.token || req.header("Authorization")?.replace("Bearer ","");
         if(!token){
             return res.status(401).json({
                 success:false,
@@ -18,7 +18,7 @@ exports.auth=(req,res,next)=>{
         try {
             const decode=jwt.verify(token,process.env.JWT_SECRET);
             console.log(decode)
-            req.User=decode;
+            req.user = decode;
         } catch (error) {
             return res.status(401).json({
                 success:false,
