@@ -18,7 +18,8 @@ exports.resetPasswordToken=async(req,res)=>{
          })
      }
      //generate token
-     const token=crypto.randomUUID;
+     const token = crypto.randomUUID();
+     console.log(token,"token reset password")
      //user update by adding token and expireation time
      const updatedDetail= await User.findOneAndUpdate({email:email},{token,resetPasswordExpire:Date.now()+5*60*1000},{new:true});
      //create url
@@ -70,7 +71,7 @@ exports.resetPassword=async(req,res)=>{
         // password hash
         const hashedPassword= await bcrypt.hash(password,10);
         // update password
-        await User.findOneAndUpdate(token,{password:hashedPassword},{new:true});
+        await User.findOneAndUpdate({token},{password:hashedPassword},{new:true});
         // return res
         return res.status(200).json({
             success:true,
