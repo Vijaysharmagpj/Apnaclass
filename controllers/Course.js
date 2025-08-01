@@ -149,7 +149,7 @@ exports.getCourseDetails = async (req, res) => {
       .populate({
         path: "courseContent",
         populate: {
-          path: "subSection",
+          path: "SubSection",
         },
       })
       .exec();
