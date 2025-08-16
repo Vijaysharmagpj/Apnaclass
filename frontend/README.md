@@ -53,7 +53,6 @@ Additionally, we use some npm packages to add extra functionality to the front e
 ![studynotion1](https://github.com/yashsarode45/StudyNotion-Mega-Project/assets/65209607/ad992ea3-e257-404a-9d40-83183f7edfd3)
 ![studynotion2](https://github.com/yashsarode45/StudyNotion-Mega-Project/assets/65209607/87089177-e065-4b8a-8515-3af8e3aed4db)
 
-
 ---
 
 ## Back-end
@@ -92,6 +91,7 @@ ApnaClass's API follows the REST architectural style, implemented using Node.js 
 - `POST /api/courses/:id/rate`: Add a course rating (out of 5).
 
 Sample API requests and responses:
+
 - `GET /api/courses`: Get all courses
 - Response: A list of all courses in the database
 - `GET /api/courses/:id`: Get a single course by ID
@@ -120,5 +120,4 @@ This infrastructure ensures scalability, security, and reliability.
 
 ---
 
-Thank you for using ApnaClass!
-
+Thank you for using ApnaClass !
