@@ -3,6 +3,7 @@ import CTAButton from "./Button"
 import HighlightText from './HighlightText'
 import { FaArrowRight } from "react-icons/fa"
 import { TypeAnimation } from 'react-type-animation'
+import "./Border.css";
 
 const CodeBlocks = ({ position, heading, subheading, CTAButton1, CTAButton2, code, backgroundGradient, codeColor }) => {
     return (

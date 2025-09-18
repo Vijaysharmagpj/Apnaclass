@@ -68,7 +68,7 @@ const Home = () => {
                 CTAButton2={
                     {btnText:"Learn More",linkto:"/login",active:false}
                 }
-                 CodeBlocks={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a></nav>\n</body>`}
+                 code={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a></nav>\n</body>`}
                  codeColor={"text-yellow-25"}
                 />
             </div>
@@ -89,12 +89,19 @@ const Home = () => {
                 CTAButton2={
                     {btnText:"Learn More",linkto:"/login",active:false}
                 }
-                 CodeBlocks={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a></nav>\n</body>`}
+                 code={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a></nav>\n</body>`}
                  codeColor={"text-yellow-25"}
                 />
             </div>
 
+            {/* section 2 */}
+
+            <div>
+                
+            </div>
+
         </div>
+
     )
 }
 
