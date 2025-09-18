@@ -4,7 +4,7 @@ import HighlightText from './HighlightText'
 import { FaArrowRight } from "react-icons/fa"
 import { TypeAnimation } from 'react-type-animation'
 
-const CodeBlocks = ({ position, heading, subheading, CTAButton1, CTAButton2, CodeBlocks, backgroundGradient, codecolor }) => {
+const CodeBlocks = ({ position, heading, subheading, CTAButton1, CTAButton2, code, backgroundGradient, codeColor }) => {
     return (
         <div className={`flex ${position} my-20 justify-between flex-col gap-10`}>
             {/*Section 1*/}
@@ -44,9 +44,9 @@ const CodeBlocks = ({ position, heading, subheading, CTAButton1, CTAButton2, Cod
                     <p>11</p>
                 </div>
                 <div className={`w-[90%] flex flex-col gap-2 font-bold 
-        font-mono ${codecolor} pr-1`}>
+        font-mono ${codeColor} pr-1`}>
                     <TypeAnimation
-                        sequence={[CodeBlocks, 2000, ""]}
+                        sequence={[code, 2000, ""]}
                         repeat={Infinity}
                         cursor={true}
                         style={
